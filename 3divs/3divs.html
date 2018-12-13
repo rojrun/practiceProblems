@@ -1,0 +1,63 @@
+<!--create a function that places one 50px x 50px div with a random color
+    background at a random place on the view window.
+When the box is clicked, it should create two more boxes,
+ with a random color background, randomly place on the view window.-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>3 divs</title>
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+    <style>
+        body{
+            width: 100%;
+        }
+
+        .square{
+            height: 100px;
+            width: 100px;
+            box-sizing: border-box;
+            display: block;
+            margin: 0;
+            position: absolute;
+        }
+    </style>
+    <script>
+        $(document).ready(makeBox);
+        var width = $(window).width();
+        var height = $(window).height();
+
+        function makeBox (){
+            var square = $("<div>",{
+                "class": "square",
+                on: {
+                    click: makeBox,
+                },
+            }).css({
+                "background-color": randomColor(),
+                "left": (randomPositionLeft() + "px"),
+                "top": (randomPositionRight() + "px")
+            });
+            $("body").append(square);
+        }
+
+        function randomColor(){
+            var color = "#000000".replace(/0/g,function(){return (~~(Math.random()*16)).toString(16);});
+            return color;
+        }
+
+        function randomPositionLeft(){
+            var left = Math.floor(Math.random() * (width-100));
+            return left;
+        }
+
+        function randomPositionRight(){
+            var top = Math.floor(Math.random() * (height-100));
+            return top;
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
