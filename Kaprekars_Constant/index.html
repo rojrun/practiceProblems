@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kaprekar's Constant</title>
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+    <script>
+
+        $(document).on("click", "button", kaprekar);
+
+        function kaprekar(event) {
+            let descArray = null;
+            let ascArray = null;
+            let descInt = null;
+            let ascInt = null;
+            let numStrArray = null;
+            let diff = null;
+            let result = null;
+            console.log("event", event);
+            let inputNumber = $(".inputNumber").val();
+            console.log("inputNumber", inputNumber);
+            for (let i = 1; inputNumber !== 6174; i++) {
+                numStrArray = ("" + inputNumber).split("");
+                console.log("numStrArray", numStrArray);
+                descArray = numStrArray.sort(function (a, b) {
+                    return b - a
+                });
+                console.log("descArray", descArray);
+                ascArray = numStrArray.slice().sort(function (a, b) {
+                    return a - b
+                });
+                console.log("ascArray ", ascArray);
+                descInt = parseInt(descArray.join(''));
+                console.log("descInt", descInt);
+                ascInt = parseInt(ascArray.join(''));
+                console.log("ascInt", ascInt);
+                diff = descInt - ascInt;
+                console.log('difference', diff);
+                inputNumber = diff;
+                console.log("inputNumber = diff", inputNumber);
+                result = descInt + " - " + ascInt + " = " + diff;
+                $(".output").append(result);
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>6174: Kaprekar's Constant</h1>
+    <input class="inputNumber" placeholder="Enter a 4-digit number"/>
+    <button>Submit</button>
+    <div class="output"></div>
+</body>
+</html>
