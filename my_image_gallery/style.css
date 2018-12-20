@@ -1,0 +1,48 @@
+body{
+    height: 100vh;
+    margin: 0;
+}
+.modal{
+    display: block;
+    text-align: center;
+}
+
+.hide{
+    display: none;
+}
+
+header{
+    height: 15%;
+    width: 100%;
+    background-color: blueviolet;
+    color: whitesmoke;
+    text-align: center;
+    font-size: 10vh;
+}
+
+section{
+    height: 85%;
+    width: 100%;
+    /*background-color: #5cb85c;*/
+    margin: 0;
+}
+
+.row{
+    height: 33%;
+    width: 100%;
+    background-color: #d9edf7;
+}
+
+.square{
+    height: 70%;
+    width: 29%;
+    background-color: #c9302c;
+    display: inline-block;
+    margin: 2%;
+}
+
+@media screen and (max-width: 600px){
+    .square{
+        width: 500px;
+    }
+}
