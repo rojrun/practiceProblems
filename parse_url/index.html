@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+
+        function parseUrl( url ){
+            const strObj = {};
+            let scheme = url.match(/^(.+?):/);
+            strObj.scheme = scheme;
+            console.log("strObj:", strObj);
+        }
+
+        parseUrl( 'http://www.google.com:80/search/?q=the%20cheese#results' );
+    </script>
+</head>
+<body>
+
+</body>
+</html>
